@@ -6,8 +6,8 @@
 
 body {
   font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
-  background-color: #1e1e1e;
-  color: #cccccc;
+  background: linear-gradient(180deg, #1c1c1c 0%, #181818 100%);
+  color: rgba(255, 255, 255, 0.9);
   height: 100vh;
   overflow: hidden;
   font-size: 13px;
@@ -19,37 +19,37 @@ body {
   flex-direction: column;
 }
 
-/* Visual Studio Code inspired color scheme */
+/* Windows 11 Fluent Design inspired color scheme */
 :root {
-  --bg-primary: #1e1e1e;
-  --bg-secondary: #252526;
-  --bg-tertiary: #2d2d30;
-  --bg-quaternary: #3c3c3c;
-  --bg-hover: #2a2d2e;
-  --border-color: #3e3e42;
-  --border-light: #464647;
-  --text-primary: #cccccc;
-  --text-secondary: #969696;
-  --text-muted: #6a6a6a;
-  --text-disabled: #4a4a4a;
-  --accent-color: #007acc;
-  --accent-hover: #005a9e;
-  --accent-light: #4fc1ff;
-  --success-color: #4caf50;
-  --error-color: #f44747;
-  --warning-color: #ffc107;
-  --info-color: #2196f3;
-  --input-bg: #3c3c3c;
-  --input-border: #464647;
-  --input-focus: #007acc;
-  --button-bg: #0e639c;
-  --button-hover: #1177bb;
-  --button-active: #005a9e;
-  --panel-bg: #252526;
-  --header-bg: #2d2d30;
-  --sidebar-bg: #252526;
+  --bg-primary: #1c1c1c;
+  --bg-secondary: #242424;
+  --bg-tertiary: #2a2a2a;
+  --bg-quaternary: #323232;
+  --bg-hover: #2d2d2d;
+  --border-color: rgba(255, 255, 255, 0.08);
+  --border-light: rgba(255, 255, 255, 0.12);
+  --text-primary: rgba(255, 255, 255, 0.9);
+  --text-secondary: rgba(255, 255, 255, 0.65);
+  --text-muted: rgba(255, 255, 255, 0.45);
+  --text-disabled: rgba(255, 255, 255, 0.3);
+  --accent-color: #3b82f6;
+  --accent-hover: #2563eb;
+  --accent-light: #60a5fa;
+  --success-color: #10b981;
+  --error-color: #ef4444;
+  --warning-color: #f59e0b;
+  --info-color: #3b82f6;
+  --input-bg: rgba(255, 255, 255, 0.05);
+  --input-border: rgba(255, 255, 255, 0.1);
+  --input-focus: #60a5fa;
+  --button-bg: #3b82f6;
+  --button-hover: #2563eb;
+  --button-active: #1d4ed8;
+  --panel-bg: #242424;
+  --header-bg: rgba(32, 32, 32, 0.95);
+  --sidebar-bg: #242424;
   --sidebar-width: 420px;
-  --overlay-bg: rgba(0, 0, 0, 0.8);
+  --overlay-bg: rgba(0, 0, 0, 0.7);
   
   /* Light theme variables */
   --light-bg-primary: #ffffff;
@@ -95,22 +95,31 @@ body.light-theme :root {
   --input-border: var(--light-input-border);
 }
 
-/* Scrollbar styling */
+/* Scrollbar styling - Windows 11 Style */
 ::-webkit-scrollbar {
-  width: 12px;
+  width: 10px;
+  height: 10px;
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--bg-secondary);
+  background: transparent;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--border-color);
-  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 8px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+  transition: background 0.2s ease;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #555555;
+  background: rgba(255, 255, 255, 0.25);
+  background-clip: padding-box;
+}
+
+::-webkit-scrollbar-corner {
+  background: transparent;
 }
 
 /* Layout styles */
