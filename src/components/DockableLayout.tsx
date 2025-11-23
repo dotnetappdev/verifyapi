@@ -463,8 +463,8 @@ export const DockableLayout: React.FC<DockableLayoutProps> = (props) => {
           display: flex; 
           flex-direction: column;
           background: linear-gradient(180deg, rgba(32, 32, 32, 0.98) 0%, rgba(28, 28, 28, 0.98) 100%);
-          backdrop-filter: blur(60px);
-          -webkit-backdrop-filter: blur(60px);
+          backdrop-filter: blur(30px);
+          -webkit-backdrop-filter: blur(30px);
           border-bottom: 1px solid rgba(255, 255, 255, 0.06);
           box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
         }
@@ -697,8 +697,8 @@ export const DockableLayout: React.FC<DockableLayoutProps> = (props) => {
           top: calc(100% + 8px);
           left: 0;
           background: rgba(42, 42, 42, 0.98);
-          backdrop-filter: blur(40px);
-          -webkit-backdrop-filter: blur(40px);
+          backdrop-filter: blur(20px);
+          -webkit-backdrop-filter: blur(20px);
           border: 1px solid rgba(255, 255, 255, 0.1);
           border-radius: 10px;
           box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.05);
@@ -786,8 +786,8 @@ export const DockableLayout: React.FC<DockableLayoutProps> = (props) => {
           top: calc(100% + 8px); 
           right: 0;
           background: rgba(42, 42, 42, 0.98);
-          backdrop-filter: blur(40px);
-          -webkit-backdrop-filter: blur(40px);
+          backdrop-filter: blur(20px);
+          -webkit-backdrop-filter: blur(20px);
           border: 1px solid rgba(255, 255, 255, 0.1);
           border-radius: 10px; 
           box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.05);
@@ -862,8 +862,8 @@ export const DockableLayout: React.FC<DockableLayoutProps> = (props) => {
           top: calc(100% + 8px); 
           right: 0;
           background: rgba(42, 42, 42, 0.98);
-          backdrop-filter: blur(40px);
-          -webkit-backdrop-filter: blur(40px);
+          backdrop-filter: blur(20px);
+          -webkit-backdrop-filter: blur(20px);
           border: 1px solid rgba(255, 255, 255, 0.1);
           padding: 6px; 
           border-radius: 10px; 
