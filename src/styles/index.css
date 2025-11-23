@@ -179,28 +179,39 @@ body.light-theme :root {
 
 .form-input {
   width: 100%;
-  padding: 8px 12px;
-  background-color: var(--input-bg);
-  border: 1px solid var(--input-border);
-  border-radius: 4px;
+  padding: 9px 12px;
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
   color: var(--text-primary);
   font-size: 13px;
   font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+  transition: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 .form-input:focus {
   outline: none;
-  border-color: var(--accent-color);
-  box-shadow: 0 0 0 1px var(--accent-color);
+  border-color: rgba(96, 165, 250, 0.5);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+  background-color: rgba(255, 255, 255, 0.08);
 }
 
 .form-select {
-  padding: 8px 12px;
-  background-color: var(--input-bg);
-  border: 1px solid var(--input-border);
-  border-radius: 4px;
+  padding: 9px 12px;
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
   color: var(--text-primary);
   font-size: 13px;
+  transition: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  cursor: pointer;
+}
+
+.form-select:focus {
+  outline: none;
+  border-color: rgba(96, 165, 250, 0.5);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+  background-color: rgba(255, 255, 255, 0.08);
 }
 
 .form-textarea {
@@ -213,91 +224,92 @@ body.light-theme :root {
 .btn {
   padding: 8px 16px;
   border: 1px solid transparent;
-  border-radius: 4px;
+  border-radius: 6px;
   font-size: 13px;
   font-weight: 600;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: all 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 6px;
-  min-height: 32px;
+  min-height: 34px;
   box-sizing: border-box;
-  letter-spacing: 0.2px;
+  letter-spacing: 0.3px;
 }
 
-/* ModernButton (Windows 11 Style) */
+/* ModernButton (Windows 11 Fluent Style) */
 .modern-button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
   border: 1px solid transparent;
-  border-radius: 4px;
+  border-radius: 6px;
   font-weight: 600;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: all 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   text-decoration: none;
   position: relative;
   overflow: hidden;
   opacity: 1;
   box-sizing: border-box;
-  padding: 8px 12px;
+  padding: 8px 14px;
   font-size: 13px;
   background: transparent;
-  letter-spacing: 0.2px;
+  letter-spacing: 0.3px;
 }
 
-.modern-button.small { padding:6px 12px; font-size:13px; }
-.modern-button.medium { padding:8px 16px; font-size:13px; }
-.modern-button.large { padding:10px 20px; font-size:14px; }
+.modern-button.small { padding:6px 12px; font-size:12px; border-radius:6px; }
+.modern-button.medium { padding:8px 16px; font-size:13px; border-radius:6px; }
+.modern-button.large { padding:10px 20px; font-size:14px; border-radius:8px; }
 
 .modern-button.primary { 
-  background: linear-gradient(180deg, rgba(0,120,215,0.14), rgba(0,120,215,0.08));
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.25), rgba(37, 99, 235, 0.2));
   color: #fff;
-  border: 1px solid rgba(0,120,215,0.3);
-  box-shadow: 0 2px 8px rgba(0,120,215,0.1);
-  border-radius: 4px;
+  border: 1px solid rgba(96, 165, 250, 0.4);
+  box-shadow: 0 2px 8px rgba(59, 130, 246, 0.2);
+  border-radius: 6px;
 }
 .modern-button.secondary { 
-  background: rgba(255,255,255,0.03);
+  background: rgba(255,255,255,0.04);
   color: var(--text-primary);
-  border: 1px solid var(--border-color);
-  border-radius: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
 }
 .modern-button.success { 
-  background: #2E7D32;
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.25), rgba(5, 150, 105, 0.2));
   color: #fff;
-  border-color: #2E7D32;
-  box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+  border: 1px solid rgba(52, 211, 153, 0.4);
+  box-shadow: 0 2px 8px rgba(16, 185, 129, 0.2);
 }
 .modern-button.danger { 
-  background: #E53935;
+  background: linear-gradient(135deg, rgba(239, 68, 68, 0.25), rgba(220, 38, 38, 0.2));
   color: #fff;
-  border-color: #E53935;
-  box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+  border: 1px solid rgba(248, 113, 113, 0.4);
+  box-shadow: 0 2px 8px rgba(239, 68, 68, 0.2);
 }
 
 .modern-button.primary:hover { 
-  background: linear-gradient(180deg, rgba(0,120,215,0.18), rgba(0,120,215,0.12));
-  border-color: rgba(0,120,215,0.5);
-  box-shadow: 0 4px 12px rgba(0,120,215,0.2);
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.35), rgba(37, 99, 235, 0.3));
+  border-color: rgba(96, 165, 250, 0.6);
+  box-shadow: 0 4px 16px rgba(59, 130, 246, 0.3);
   transform: translateY(-1px);
 }
 .modern-button.secondary:hover { 
-  background: rgba(255,255,255,0.06);
-  border-color: var(--accent-color);
+  background: rgba(255,255,255,0.08);
+  border-color: rgba(96, 165, 250, 0.4);
+  transform: translateY(-1px);
 }
 .modern-button.success:hover { 
-  background: #388E3C;
-  border-color: #388E3C;
-  box-shadow: 0 2px 4px rgba(46,125,50,0.3);
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.35), rgba(5, 150, 105, 0.3));
+  border-color: rgba(52, 211, 153, 0.6);
+  box-shadow: 0 4px 16px rgba(16, 185, 129, 0.3);
   transform: translateY(-1px);
 }
 .modern-button.danger:hover { 
-  background: #EF5350;
-  border-color: #EF5350;
+  background: linear-gradient(135deg, rgba(239, 68, 68, 0.35), rgba(220, 38, 38, 0.3));
+  border-color: rgba(248, 113, 113, 0.6);
   box-shadow: 0 2px 4px rgba(229,57,53,0.3);
   transform: translateY(-1px);
 }
