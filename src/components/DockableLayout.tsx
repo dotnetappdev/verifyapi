@@ -457,13 +457,16 @@ export const DockableLayout: React.FC<DockableLayoutProps> = (props) => {
       </div>
 
       <style>{`
-        /* Office 365 Ribbon Bar Styles */
+        /* Windows 11 Settings Style Toolbar */
         .layout-toolbar { 
           height: auto; 
           display: flex; 
           flex-direction: column;
-          background: #1f1f1f; 
-          border-bottom: 1px solid #2d2d2d; 
+          background: linear-gradient(180deg, rgba(32, 32, 32, 0.98) 0%, rgba(28, 28, 28, 0.98) 100%);
+          backdrop-filter: blur(30px);
+          -webkit-backdrop-filter: blur(30px);
+          border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
         }
         
         /* Ribbon Container */
@@ -473,61 +476,73 @@ export const DockableLayout: React.FC<DockableLayoutProps> = (props) => {
           width: 100%;
         }
         
-        /* Ribbon Tabs Row */
+        /* Ribbon Tabs Row - Windows 11 Style */
         .ribbon-tabs { 
           display: flex; 
           align-items: center;
           justify-content: space-between;
-          background: #2d2d2d; 
-          border-bottom: 1px solid #3e3e42;
-          padding: 0 8px;
-          height: 32px;
+          background: rgba(42, 42, 42, 0.6); 
+          border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+          padding: 0 12px;
+          height: 36px;
         }
         
         .ribbon-tabs-right {
           display: flex;
           align-items: center;
-          gap: 8px;
+          gap: 6px;
           margin-left: auto;
         }
         
         .ribbon-tab { 
-          padding: 6px 20px; 
+          padding: 8px 18px; 
           background: transparent; 
           border: none; 
-          color: #cccccc; 
+          color: rgba(255, 255, 255, 0.75); 
           cursor: pointer; 
           font-size: 13px; 
           font-weight: 500;
-          transition: all 0.15s ease;
-          border-bottom: 2px solid transparent;
+          transition: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+          border-radius: 6px 6px 0 0;
           height: 100%;
           display: flex;
           align-items: center;
+          position: relative;
         }
         
         .ribbon-tab:hover { 
-          background: rgba(255, 255, 255, 0.05); 
-          color: #ffffff;
+          background: rgba(255, 255, 255, 0.06); 
+          color: rgba(255, 255, 255, 0.95);
         }
         
         .ribbon-tab.active { 
-          background: #1f1f1f;
+          background: rgba(32, 32, 32, 0.95);
           color: #ffffff; 
-          border-bottom-color: #0078d4;
+          box-shadow: inset 0 -2px 0 0 #60a5fa;
         }
         
-        /* Ribbon Content Area */
+        .ribbon-tab.active::before {
+          content: '';
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          height: 2px;
+          background: linear-gradient(90deg, #3b82f6, #60a5fa, #3b82f6);
+          box-shadow: 0 0 8px rgba(96, 165, 250, 0.5);
+        }
+        
+        /* Ribbon Content Area - Windows 11 Card Style */
         .ribbon-content { 
           display: flex; 
-          background: #1f1f1f;
-          padding: 8px 16px;
-          min-height: 92px;
+          background: linear-gradient(180deg, rgba(32, 32, 32, 0.95) 0%, rgba(28, 28, 28, 0.95) 100%);
+          padding: 12px 20px;
+          min-height: 100px;
         }
         
         .ribbon-tab-content { 
           display: flex; 
-          gap: 8px;
+          gap: 12px;
           width: 100%;
           align-items: flex-start;
         }
@@ -536,228 +551,270 @@ export const DockableLayout: React.FC<DockableLayoutProps> = (props) => {
           display: none; 
         }
         
-        /* Ribbon Groups */
+        /* Ribbon Groups - Windows 11 Cards */
         .ribbon-group { 
           display: flex; 
           flex-direction: column;
           align-items: center;
-          padding: 4px 12px;
-          border-right: 1px solid #3e3e42;
+          padding: 8px 16px;
+          border-right: 1px solid rgba(255, 255, 255, 0.06);
           min-width: fit-content;
+          border-radius: 6px;
+          transition: background 0.2s ease;
         }
         
         .ribbon-group:last-child {
           border-right: none;
         }
         
+        .ribbon-group:hover {
+          background: rgba(255, 255, 255, 0.02);
+        }
+        
         .ribbon-group-buttons { 
           display: flex; 
-          gap: 4px;
-          margin-bottom: 4px;
+          gap: 6px;
+          margin-bottom: 8px;
         }
         
         .ribbon-group-label { 
           font-size: 11px; 
-          color: #999999; 
+          color: rgba(255, 255, 255, 0.55); 
           text-align: center;
           margin-top: 4px;
-          font-weight: 500;
-          letter-spacing: 0.3px;
+          font-weight: 600;
+          letter-spacing: 0.5px;
+          text-transform: uppercase;
         }
         
-        /* Ribbon Buttons - Office 365 Style */
+        /* Ribbon Buttons - Windows 11 Fluent Design */
         .ribbon-button { 
           display: flex; 
           flex-direction: column; 
           align-items: center; 
           justify-content: center;
-          padding: 8px 12px;
-          min-width: 64px;
-          min-height: 64px;
-          background: transparent;
-          border: 1px solid transparent;
-          border-radius: 3px;
-          color: #cccccc;
+          padding: 10px 14px;
+          min-width: 72px;
+          min-height: 72px;
+          background: rgba(255, 255, 255, 0.03);
+          border: 1px solid rgba(255, 255, 255, 0.06);
+          border-radius: 8px;
+          color: rgba(255, 255, 255, 0.85);
           cursor: pointer;
           font-size: 11px;
-          transition: all 0.12s ease;
-          gap: 4px;
+          transition: all 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+          gap: 6px;
+          box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
         }
         
         .ribbon-button:hover { 
           background: rgba(255, 255, 255, 0.08);
-          border-color: rgba(255, 255, 255, 0.1);
+          border-color: rgba(255, 255, 255, 0.12);
           color: #ffffff;
+          transform: translateY(-1px);
+          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
         }
         
         .ribbon-button:active { 
-          background: rgba(255, 255, 255, 0.05);
-          transform: scale(0.98);
+          background: rgba(255, 255, 255, 0.06);
+          transform: translateY(0);
+          box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
         }
         
         .ribbon-button.active {
-          background: rgba(0, 120, 212, 0.2);
-          border-color: #0078d4;
-          color: #ffffff;
+          background: rgba(59, 130, 246, 0.15);
+          border-color: rgba(96, 165, 250, 0.4);
+          color: #60a5fa;
+          box-shadow: 0 0 12px rgba(59, 130, 246, 0.3), inset 0 0 0 1px rgba(96, 165, 250, 0.2);
         }
         
         .ribbon-button.ribbon-button-primary {
-          background: rgba(0, 120, 212, 0.15);
-          border-color: #0078d4;
+          background: linear-gradient(135deg, rgba(59, 130, 246, 0.25), rgba(37, 99, 235, 0.2));
+          border-color: rgba(96, 165, 250, 0.5);
+          color: #ffffff;
+          box-shadow: 0 2px 8px rgba(59, 130, 246, 0.25);
         }
         
         .ribbon-button.ribbon-button-primary:hover {
-          background: rgba(0, 120, 212, 0.25);
-          border-color: #1890ff;
+          background: linear-gradient(135deg, rgba(59, 130, 246, 0.35), rgba(37, 99, 235, 0.3));
+          border-color: rgba(96, 165, 250, 0.7);
+          box-shadow: 0 4px 16px rgba(59, 130, 246, 0.35);
         }
         
         .ribbon-button:disabled {
-          opacity: 0.4;
+          opacity: 0.35;
           cursor: not-allowed;
         }
         
         .ribbon-button:disabled:hover {
-          background: transparent;
-          border-color: transparent;
+          background: rgba(255, 255, 255, 0.03);
+          border-color: rgba(255, 255, 255, 0.06);
+          transform: translateY(0);
+          box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
         }
         
         .ribbon-button-icon { 
-          font-size: 24px;
-          width: 32px;
-          height: 32px;
+          font-size: 26px;
+          width: 36px;
+          height: 36px;
           display: flex; 
           align-items: center; 
           justify-content: center;
+          filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.3));
         }
         
         .ribbon-button-icon svg {
-          width: 24px;
-          height: 24px;
+          width: 26px;
+          height: 26px;
         }
         
         .ribbon-button-label { 
           font-size: 11px; 
           text-align: center;
-          line-height: 1.2;
+          line-height: 1.3;
           font-weight: 500;
           white-space: nowrap;
         }
         
-        /* Ribbon Button with Menu */
+        .ribbon-button-arrow {
+          font-size: 8px;
+          margin-left: 2px;
+          opacity: 0.7;
+        }
+        
+        /* Ribbon Button with Menu - Windows 11 Style */
         .ribbon-button-with-menu {
           position: relative;
           display: inline-block;
         }
         
+        .ribbon-dropdown-wrapper {
+          position: relative;
+        }
+        
         .ribbon-dropdown {
           position: absolute;
-          top: calc(100% + 4px);
+          top: calc(100% + 8px);
           left: 0;
-          background: #2d2d2d;
-          border: 1px solid #3e3e42;
-          border-radius: 4px;
-          box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+          background: rgba(42, 42, 42, 0.98);
+          backdrop-filter: blur(20px);
+          -webkit-backdrop-filter: blur(20px);
+          border: 1px solid rgba(255, 255, 255, 0.1);
+          border-radius: 10px;
+          box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.05);
           z-index: 1300;
-          min-width: 220px;
+          min-width: 240px;
           overflow: hidden;
+          padding: 6px;
         }
         
         .ribbon-dropdown-item {
           display: flex;
           align-items: center;
-          gap: 8px;
-          padding: 10px 16px;
+          gap: 10px;
+          padding: 10px 14px;
           background: transparent;
           border: none;
           width: 100%;
           text-align: left;
           cursor: pointer;
           font-size: 13px;
-          color: #cccccc;
-          transition: all 0.12s ease;
+          color: rgba(255, 255, 255, 0.85);
+          transition: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+          border-radius: 6px;
         }
         
         .ribbon-dropdown-item:hover {
-          background: rgba(255, 255, 255, 0.08);
+          background: rgba(255, 255, 255, 0.1);
           color: #ffffff;
+          transform: translateX(2px);
         }
         
         .ribbon-dropdown-check {
-          width: 16px;
+          width: 18px;
           display: inline-flex;
           align-items: center;
           justify-content: center;
-          font-size: 12px;
-          color: #0078d4;
+          font-size: 14px;
+          color: #60a5fa;
+          font-weight: 600;
         }
         
         .ribbon-dropdown-sep {
           height: 1px;
-          background: #3e3e42;
-          margin: 4px 0;
+          background: rgba(255, 255, 255, 0.1);
+          margin: 6px 8px;
         }
         
-        /* Icon Button (for Help, etc.) */
+        /* Icon Button (for Help, Profile) - Windows 11 Pill Style */
         .ribbon-icon-button {
-          width: 28px;
-          height: 28px;
-          padding: 4px;
-          background: transparent;
-          border: 1px solid transparent;
-          border-radius: 3px;
-          color: #cccccc;
+          width: 32px;
+          height: 32px;
+          padding: 6px;
+          background: rgba(255, 255, 255, 0.04);
+          border: 1px solid rgba(255, 255, 255, 0.08);
+          border-radius: 8px;
+          color: rgba(255, 255, 255, 0.75);
           cursor: pointer;
           display: flex;
           align-items: center;
           justify-content: center;
-          transition: all 0.12s ease;
+          transition: all 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94);
           font-size: 16px;
         }
         
         .ribbon-icon-button:hover {
-          background: rgba(255, 255, 255, 0.08);
-          border-color: rgba(255, 255, 255, 0.1);
+          background: rgba(255, 255, 255, 0.1);
+          border-color: rgba(255, 255, 255, 0.15);
+          color: #ffffff;
+          transform: scale(1.05);
         }
         
         .ribbon-icon-button.active {
-          background: rgba(0, 120, 212, 0.2);
-          border-color: #0078d4;
+          background: rgba(59, 130, 246, 0.2);
+          border-color: rgba(96, 165, 250, 0.4);
+          color: #60a5fa;
         }
         
-        /* Help & Profile Dropdowns */
+        /* Help & Profile Dropdowns - Windows 11 Fluent */
         .help-container {
           position: relative;
         }
         
         .help-dropdown { 
           position: absolute; 
-          top: calc(100% + 4px); 
+          top: calc(100% + 8px); 
           right: 0;
-          background: #2d2d2d; 
-          border: 1px solid #3e3e42; 
-          border-radius: 4px; 
-          box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4); 
+          background: rgba(42, 42, 42, 0.98);
+          backdrop-filter: blur(20px);
+          -webkit-backdrop-filter: blur(20px);
+          border: 1px solid rgba(255, 255, 255, 0.1);
+          border-radius: 10px; 
+          box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.05);
           z-index: 1200;
-          min-width: 180px;
+          min-width: 200px;
           overflow: hidden;
+          padding: 6px;
         }
         
         .help-dropdown button { 
           display: block; 
-          padding: 10px 16px; 
+          padding: 10px 14px; 
           background: transparent; 
           border: none; 
           width: 100%; 
           text-align: left; 
           cursor: pointer; 
           font-size: 13px; 
-          color: #cccccc;
-          transition: all 0.12s ease;
+          color: rgba(255, 255, 255, 0.85);
+          transition: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+          border-radius: 6px;
         }
         
         .help-dropdown button:hover { 
-          background: rgba(255, 255, 255, 0.08);
+          background: rgba(255, 255, 255, 0.1);
           color: #ffffff;
+          transform: translateX(2px);
         }
         
         .toolbar-avatar-container {
@@ -765,25 +822,28 @@ export const DockableLayout: React.FC<DockableLayoutProps> = (props) => {
         }
         
         .toolbar-avatar { 
-          width: 28px; 
-          height: 28px; 
-          border-radius: 3px; 
+          width: 32px; 
+          height: 32px; 
+          border-radius: 50%; 
           overflow: hidden; 
           display: flex; 
           align-items: center; 
           justify-content: center; 
-          border: 1px solid #3e3e42; 
-          background: rgba(255, 255, 255, 0.05); 
+          border: 2px solid rgba(255, 255, 255, 0.1); 
+          background: linear-gradient(135deg, rgba(59, 130, 246, 0.2), rgba(147, 51, 234, 0.2)); 
           cursor: pointer; 
-          transition: all 0.15s ease; 
-          font-size: 12px; 
+          transition: all 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94); 
+          font-size: 13px; 
           font-weight: 600; 
-          color: #cccccc;
+          color: #ffffff;
+          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
         }
         
         .toolbar-avatar:hover { 
-          background: rgba(255, 255, 255, 0.08); 
-          border-color: rgba(255, 255, 255, 0.1);
+          background: linear-gradient(135deg, rgba(59, 130, 246, 0.3), rgba(147, 51, 234, 0.3)); 
+          border-color: rgba(96, 165, 250, 0.4);
+          transform: scale(1.08);
+          box-shadow: 0 4px 16px rgba(59, 130, 246, 0.3);
         }
         
         .toolbar-avatar.has-image img { 
@@ -793,45 +853,49 @@ export const DockableLayout: React.FC<DockableLayoutProps> = (props) => {
         }
         
         .toolbar-avatar .avatar-initial { 
-          font-size: 12px;
-          font-weight: 600;
+          font-size: 13px;
+          font-weight: 700;
         }
         
         .profile-dropdown { 
           position: absolute; 
-          top: calc(100% + 4px); 
+          top: calc(100% + 8px); 
           right: 0;
-          background: #2d2d2d; 
-          border: 1px solid #3e3e42; 
-          padding: 4px 0; 
-          border-radius: 4px; 
-          box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4); 
+          background: rgba(42, 42, 42, 0.98);
+          backdrop-filter: blur(20px);
+          -webkit-backdrop-filter: blur(20px);
+          border: 1px solid rgba(255, 255, 255, 0.1);
+          padding: 6px; 
+          border-radius: 10px; 
+          box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.05);
           z-index: 1200;
-          min-width: 200px;
+          min-width: 220px;
         }
         
         .profile-dropdown-item { 
           display: block; 
-          padding: 10px 16px; 
+          padding: 10px 14px; 
           background: transparent; 
           border: none; 
           width: 100%; 
           text-align: left; 
           cursor: pointer; 
           font-size: 13px; 
-          color: #cccccc; 
-          transition: all 0.12s ease;
+          color: rgba(255, 255, 255, 0.85); 
+          transition: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+          border-radius: 6px;
         }
         
         .profile-dropdown-item:hover { 
-          background: rgba(255, 255, 255, 0.08);
+          background: rgba(255, 255, 255, 0.1);
           color: #ffffff;
+          transform: translateX(2px);
         }
         
         .profile-dropdown-sep { 
           height: 1px; 
-          background: #3e3e42; 
-          margin: 4px 0;
+          background: rgba(255, 255, 255, 0.1); 
+          margin: 6px 8px;
         }
         
         /* Main Layout Area */
